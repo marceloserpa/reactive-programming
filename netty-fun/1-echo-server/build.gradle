@@ -1,0 +1,13 @@
+plugins {
+    id 'java-library'
+    id 	'eclipse'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+	compile group: 'io.netty', name: 'netty-all', version: '4.1.44.Final'
+    testImplementation 'junit:junit:4.12'
+}
