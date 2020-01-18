@@ -53,11 +53,8 @@ public class TaskSchedulingRecurring {
 		try {
 			channelFuture = serverBootstrap.bind().sync();
 			
-			channelFuture.channel().eventLoop().scheduleAtFixedRate(new Runnable() {
-				@Override
-				public void run() {
-					System.out.println("Hello, here is Marcelo");
-				}
+			channelFuture.channel().eventLoop().scheduleAtFixedRate(() -> {
+				System.out.println("Hello, here is Marcelo");
 			}, 10, 10, TimeUnit.SECONDS);
 			
 			
