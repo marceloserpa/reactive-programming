@@ -19,7 +19,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
-public class TaskSchedulingRecurring {
+public class TaskScheduling {
 	
 	public static void main(String[] args) throws InterruptedException {
 		serve(9000);
@@ -53,9 +53,9 @@ public class TaskSchedulingRecurring {
 		try {
 			channelFuture = serverBootstrap.bind().sync();
 			
-			channelFuture.channel().eventLoop().scheduleAtFixedRate(() -> {
+			channelFuture.channel().eventLoop().schedule(() -> {
 				System.out.println("Hello, here is my TASK");
-			}, 10, 10, TimeUnit.SECONDS);
+			}, 10, TimeUnit.SECONDS);
 			
 			
 			channelFuture.channel().closeFuture().sync();
